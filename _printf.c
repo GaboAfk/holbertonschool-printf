@@ -17,7 +17,7 @@ int print_dec(va_list var);
 int _printf(const char *format, ...)
 {
 	va_list txt;
-	int i = 0, j, count = 0;
+	int i = 0, j, count = 0, res;
 
 	st lts[] =  {
 		{'c', print_char},
@@ -29,7 +29,10 @@ int _printf(const char *format, ...)
 
 	va_start(txt, format);
 
-	while (format && format[i])		/*mientras format existe y contiene algo*/
+	if (!format)
+		return (-1);
+
+	while (format && format[i])
 	{
 		if (format[i] == '%')	/* Carlos% */
 		{
@@ -41,8 +44,9 @@ int _printf(const char *format, ...)
 				{
 					if (format[i] == lts[j].letter)
 					{
-						if (lts[j].function(txt) != 0)/* si function NO retorna 0 es un error!*/
-							return (lts[j].function(txt)); /* imprimo el error */
+						res = lts[j].function(txt);
+						if (res != 0)
+							return (res);
 						else
 						{
 							i++;
@@ -51,7 +55,7 @@ int _printf(const char *format, ...)
 					}
 					j++;
 				}
-				if (lts[j].letter == '\0') /* si llegué al final, NO COINCIDE el formato. es ERROR*/
+				if (lts[j].letter == '\0')
 					return (-1);
 			}
 		}

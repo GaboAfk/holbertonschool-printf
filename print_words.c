@@ -28,13 +28,13 @@ int print_string(va_list var)
 	int j = 0;
 
 	if (!aux)
-		return (3);
-
-	while (aux[j])
-	{
-		/*write(1, aux, strlen(aux));*/
-		write(1, &aux[j], sizeof(char));
-		j++;
-	}
+		write(1, "(null)", sizeof("(null)"));
+	else
+		while (aux[j])
+		{
+			/*write(1, aux, strlen(aux));*/
+			write(1, &aux[j], sizeof(char));
+			j++;
+		}
 	return (0);
 }
