@@ -9,7 +9,7 @@
 int _printf(const char *format, ...)
 {
 	va_list txt;
-	int i = 0, count = 0, res = 0;
+	int i = 0, count = 0;
 /*	int (*function)(va_list);*/
 
 	if (format == NULL)
@@ -43,7 +43,7 @@ int _printf(const char *format, ...)
 			}
 			else if (format[i + 1] == 's')
 			{
-				res = print_string(txt);
+				count += print_string(txt);
 				i++;
 				i++;
 			}
