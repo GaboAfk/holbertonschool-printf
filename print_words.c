@@ -25,10 +25,11 @@ int print_string(va_list var)
 
 	if (!aux)
 	{
-		write(1, "(null)", sizeof("(null)"));
-		return (sizeof("(null)"));
+		aux = "(null)";
+/*		write(1, "(null)", sizeof("(null)"));*/
+	/*return ();*/
 	}
-	else
+	/*else*/
 		while (aux[j])
 		{
 			/*write(1, aux, strlen(aux));*/
