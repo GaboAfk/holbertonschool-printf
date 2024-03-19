@@ -9,11 +9,7 @@ int print_char(va_list var)
 {
 	char aux = va_arg(var, int);
 
-	if (!aux)
-		return (-1);
-
 	write(1, &aux, sizeof(char));
-
 	return (1);
 }
 
@@ -36,7 +32,7 @@ int print_string(va_list var)
 			write(1, &aux[j], sizeof(char));
 			j++;
 		}
-	return (0);
+	return (j);
 }
 
 /**
