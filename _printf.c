@@ -4,8 +4,6 @@
  */
 
 #include "main.h"
-#include <stdlib.h>
-#include <unistd.h>
 
 int print_dec(va_list var);
 
@@ -20,46 +18,38 @@ int _printf(const char *format, ...)
 	int i = 0, j, count = 0, res;
 
 	st lts[] =  {
-		{'c', print_char},
-		{'s', print_string},
-		{'d', print_dec},
-		{'i', print_dec},
-		{'\0', NULL}
+		{"c", print_char},
+	/*	{'s', print_string},*/
+/*		{'d', print_dec},*/
+/*		{'i', print_dec},*/
+		{NULL, NULL}
 	};
+
+	if (!format)
+		return (-1);	/*puntero NULL -> error*/
 
 	va_start(txt, format);
 
-	if (!format)
-		return (-1);
-
-	while (format && format[i])
+	while (format[i])
 	{
-		if (format[i] == '%')	/* Carlos% */
+		if (format[i] == '%')
 		{
 			i++;
 			if (format[i] != '%')
 			{
 				j = 0;
-				while (lts[j].letter != '\0')
+				while (lts[j].letter)
 				{
-					if (format[i] == lts[j].letter)
+					if (*lts[j].letter == format[i])
 					{
 						res = lts[j].function(txt);
-						if (res != 0)
-							return (res);
-						else
-						{
-							i++;
-							break;
-						}
+						i++;
+						break;
 					}
-					j++;
 				}
-				if (lts[j].letter == '\0')
-					return (-1);
 			}
 		}
-		write(1, &format[i], sizeof(char));
+		write(1, &format[i], 1);
 		i++;
 		count++;
 	}

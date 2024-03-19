@@ -18,7 +18,7 @@ int print_dec(va_list var);
 
 typedef struct f
 {
-	char letter;
+	char *letter;
 	int (*function)(va_list);
 } st;
 
