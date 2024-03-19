@@ -24,7 +24,10 @@ int print_string(va_list var)
 	int j = 0;
 
 	if (!aux)
+	{
 		write(1, "(null)", sizeof("(null)"));
+		return (sizeof("(null)"));
+	}
 	else
 		while (aux[j])
 		{
