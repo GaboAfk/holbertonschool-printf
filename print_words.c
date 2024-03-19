@@ -14,7 +14,7 @@ int print_char(va_list var)
 
 	write(1, &aux, sizeof(char));
 
-	return (0);
+	return (1);
 }
 
 /**

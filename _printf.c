@@ -38,9 +38,8 @@ int _printf(const char *format, ...)
 			}
 			else if (format[i + 1] == 'c')
 			{
-				res = print_char(txt);
-				i++;
-				i++;
+				count += print_char(txt);
+				i += 2;
 			}
 			else if (format[i + 1] == 's')
 			{
@@ -58,8 +57,8 @@ int _printf(const char *format, ...)
 				count++;
 			}
 
-			if (res != 0)
-				return (res);
+		/*	if (res != 0) */
+		/*		return (res); */
 		}
 	}
 
