@@ -96,7 +96,7 @@ int _printf(const char *format, ...)
 	};
 
 	va_start(txt, format);
-	while (format[i])		/*recorre mientras format existe y contiene algo*/
+	while (format && format[i])		/*recorre mientras format existe y contiene algo*/
 	{
 		if (format[i] == '%')
 		{
