@@ -10,6 +10,8 @@ int _printf(const char *format, ...);
 int print_char(va_list var);
 int print_string(va_list var);
 int print_dec(va_list var);
+int print_base(va_list var);
+int error(va_list var);
 /**
  * f - struct to associate a character to a function.
  * letter: character to asocciate.
@@ -18,7 +20,7 @@ int print_dec(va_list var);
 
 typedef struct f
 {
-	char letter;
+	char *letter;
 	int (*function)(va_list);
 } st;
 

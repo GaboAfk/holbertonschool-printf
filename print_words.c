@@ -38,3 +38,27 @@ int print_string(va_list var)
 		}
 	return (0);
 }
+
+/**
+ * print_base - function that prints a char.
+ * @var: unused list of arguments.
+ * Return: 0 Success.
+ */
+int print_base(va_list var)
+{
+	(void)var;
+	write(1, "%", sizeof(char));
+	return (0);
+}
+
+/**
+ * error - function give back a error.
+ * @var: unused list of arguments.
+ * Return: -1.
+ */
+int error(va_list var)
+{
+	(void)var;
+	return (-1);
+}
+

@@ -4,8 +4,6 @@
  */
 
 #include "main.h"
-#include <stdlib.h>
-#include <unistd.h>
 
 int print_dec(va_list var);
 
@@ -20,11 +18,13 @@ int _printf(const char *format, ...)
 	int i = 0, j, count = 0, res;
 
 	st lts[] =  {
-		{'c', print_char},
-		{'s', print_string},
-		{'d', print_dec},
-		{'i', print_dec},
-		{'\0', NULL}
+		{"c", print_char},
+		{"s", print_string},
+		{"d", print_dec},
+		{"i", print_dec},
+	/*	{"%", print_base},*/ /* % consecutivo -> %% */
+		{"\0", error},		/* vacio error -> %'\0' */
+		{NULL, NULL}
 	};
 
 	va_start(txt, format);
@@ -32,31 +32,23 @@ int _printf(const char *format, ...)
 	if (!format)
 		return (-1);
 
-	while (format && format[i])
+	while (format[i])
 	{
-		if (format[i] == '%')	/* Carlos% */
+		if (format[i] == '%')	/* Entre en modo Carlos% */
 		{
 			i++;
-			if (format[i] != '%')
+			j = 0;
+			while (lts[j].letter != NULL)
 			{
-				j = 0;
-				while (lts[j].letter != '\0')
+				if (format[i] == *lts[j].letter)
 				{
-					if (format[i] == lts[j].letter)
-					{
-						res = lts[j].function(txt);
-						if (res != 0)
-							return (res);
-						else
-						{
-							i++;
-							break;
-						}
-					}
-					j++;
+					res = lts[j].function(txt);
+					if (res != 0)
+						return (res);
+					i++;
+					break;
 				}
-				if (lts[j].letter == '\0')
-					return (-1);
+				j++;
 			}
 		}
 		write(1, &format[i], sizeof(char));
