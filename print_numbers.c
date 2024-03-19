@@ -3,17 +3,19 @@
 /**
  * print_decR - auxiliar function that prints a decimal number recursivemt.
  * @var: list of arguments.
+ * @count: numbers printed.
  * Return: 0 Success. 5 Error.
  */
-void print_decR(int var)
+void print_decR(int var, int count)
 {
 	char aux;
 
 	if (var / 10)
-		print_decR(var / 10);
+		print_decR(var / 10, count);
 
 	aux = (var % 10) + '0';
 	write(1, &aux, sizeof(char));
+	count++;
 }
 
 /**
@@ -24,9 +26,10 @@ void print_decR(int var)
 int print_dec(va_list var)
 {
 	int aux = va_arg(var, int);
+	int count = 0;
 
-	if (!aux)
-		return (4);
+/*	if (!aux)*/
+/*		return (4);*/
 
 	if (aux < 0)
 	{
@@ -34,7 +37,6 @@ int print_dec(va_list var)
 		aux = -aux;
 	}
 
-	print_decR(aux);
-
-	return (0);
+	print_decR(aux, count);
+	return (count);
 }

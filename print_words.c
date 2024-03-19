@@ -24,18 +24,13 @@ int print_string(va_list var)
 	int j = 0;
 
 	if (!aux)
-	{
 		aux = "(null)";
-/*		write(1, "(null)", sizeof("(null)"));*/
-	/*return ();*/
+
+	while (aux[j])
+	{
+		write(1, &aux[j], sizeof(char));
+		j++;
 	}
-	/*else*/
-		while (aux[j])
-		{
-			/*write(1, aux, strlen(aux));*/
-			write(1, &aux[j], sizeof(char));
-			j++;
-		}
 	return (j);
 }
 

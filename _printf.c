@@ -47,6 +47,12 @@ int _printf(const char *format, ...)
 				i++;
 				i++;
 			}
+			else if (format[i + 1] == 'd' || format[i + 1] == 'i')
+			{
+				count += print_dec(txt);
+				i++;
+				i++;
+			}
 			else
 			{
 				write(1, &format[i], sizeof(char));
