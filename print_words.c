@@ -10,7 +10,7 @@ int print_char(va_list var)
 	char aux = va_arg(var, int);
 
 	if (!aux)
-		return (2);
+		return (-1);
 
 	write(1, &aux, sizeof(char));
 
