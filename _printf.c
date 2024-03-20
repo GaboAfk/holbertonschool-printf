@@ -28,19 +28,11 @@ int _printf(const char *format, ...)
 
 			if (format[i] == '\0') /*ERROR % al final de string*/
 				return (-1);
-			else if (format[i] == '%')
-			{
-				count += write(1, &format[i], sizeof(char));
-				i++;
-			}
-			else
-			{
 			/*uso funcion auxiliar para imprimir los casos de formato*/
 			/*le paso la letra a evaluar y la lista de argumentos a usar*/
 			count += _printf_struct(format[i], txt);
 			i++; /*ya imprimí el formato correspondiente*/
 					/*avanzo a la siguiente letra*/
-			}
 		}
 	}
 	va_end(txt);

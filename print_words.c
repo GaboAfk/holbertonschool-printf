@@ -35,15 +35,15 @@ int print_string(va_list var)
 }
 
 /**
- * print_base - function that prints a char.
+ * print_mod - function that prints a char.
  * @var: unused list of arguments.
  * Return: 0 Success.
  */
-int print_base(va_list var)
+int print_mod(va_list var)
 {
 	(void)var;
 	write(1, "%", sizeof(char));
-	return (0);
+	return (1);
 }
 
 /**

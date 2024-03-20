@@ -10,7 +10,7 @@ int _printf(const char *format, ...);
 int print_char(va_list var);
 int print_string(va_list var);
 int print_dec(va_list var);
-int print_base(va_list var);
+int print_mod(va_list var);
 int error(va_list var);
 int _printf_struct(char letter, va_list txt);
 
