@@ -15,9 +15,9 @@ int error(va_list var);
 int _printf_struct(char letter, va_list txt);
 
 /**
- * f - struct to associate a character to a function.
- * letter: character to asocciate.
- * function: function associated by a specific character. 
+ * struct f - struct to associate a character to a function.
+ * @letter: character to asocciate.
+ * @function: function associated by a specific character.
  */
 
 typedef struct f
