@@ -12,6 +12,8 @@ int print_string(va_list var);
 int print_dec(va_list var);
 int print_base(va_list var);
 int error(va_list var);
+int _printf_struct(char letter, va_list txt);
+
 /**
  * f - struct to associate a character to a function.
  * letter: character to asocciate.
@@ -23,14 +25,5 @@ typedef struct f
 	char *letter;
 	int (*function)(va_list);
 } st;
-
-st lts[] = {
-		{"c", print_char},
-		{"s", print_string},
-		{"d", print_dec},
-		{"i", print_dec},
-		{"%", print_base},
-		{NULL, NULL}
-	};
 
 #endif
