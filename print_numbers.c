@@ -27,21 +27,21 @@ void print_decR(int var, int *count)
 int print_dec(va_list var)
 {
 	int aux = va_arg(var, int);
-	int count = 0;
-	char *intmin = "-2147483648";
+	int count = 0, last = aux % 10;
 
-	if (aux == INT_MIN)
-	{
-		return (write(1, intmin, 11));
-	}
+	aux /= 10;
 
-	if (aux < 0)
+	if (last < 0)
 	{
 		write(1, "-", sizeof(char));
 		count++;
-		aux = -aux;
+		aux *= -1;
+		last *= -1;
 	}
 
-	print_decR(aux, &count);
+	if (aux)
+		print_decR(aux, &count);
+
+	print_decR(last, &count);
 	return (count);
 }
