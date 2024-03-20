@@ -49,7 +49,7 @@ It will print: Let's watch a movie
 
 
 ### Flowchart of the _printf
-<img src="https://i.ibb.co/8NQKF3w/printf-flowchart-drawio-1.png">
+<img src="https://i.ibb.co/VMm6FNn/printf-blue-flowchart-drawio.png">
 
 ## Authors
 Pablo Espínola, Gabriel Morffe, Michael Lucas
