@@ -24,4 +24,13 @@ typedef struct f
 	int (*function)(va_list);
 } st;
 
+st lts[] = {
+		{"c", print_char},
+		{"s", print_string},
+		{"d", print_dec},
+		{"i", print_dec},
+		{"%", print_base},
+		{NULL, NULL}
+	};
+
 #endif
