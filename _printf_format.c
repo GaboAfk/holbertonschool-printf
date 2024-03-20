@@ -15,7 +15,7 @@ int _printf_struct(char letter, va_list txt)
 		{"s", print_string},
 		{"d", print_dec},
 		{"i", print_dec},
-		{"%", print_base},
+	/*	{"%", print_base},*/
 		{NULL, NULL}
 	};
 
